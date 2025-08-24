@@ -15,8 +15,6 @@ func (i *clamAVRestInstance) ScanFile(fileContent []byte) (bool, error) {
 
 	address := fmt.Sprintf("%s://%s:%d/scan-document", httpProtocol, i.apiAddress, i.apiPort)
 
-	fmt.Println("address", address)
-
 	// Prepare multipart form
 	var b bytes.Buffer
 	w := multipart.NewWriter(&b)
@@ -43,8 +41,6 @@ func (i *clamAVRestInstance) ScanFile(fileContent []byte) (bool, error) {
 	defer response.Body.Close()
 
 	isVirusFree := response.StatusCode == http.StatusOK
-
-	fmt.Println("is Virus Free", response.StatusCode)
 
 	return isVirusFree, nil
 }
