@@ -40,7 +40,7 @@ func (i *clamAVRestInstance) ScanFile(fileContent []byte) (bool, error) {
 
 	defer response.Body.Close()
 
-	isVirusFree := response.StatusCode == http.StatusOK
+	isVirusFree := response.StatusCode != http.StatusOK
 
 	return isVirusFree, nil
 }

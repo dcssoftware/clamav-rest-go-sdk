@@ -14,6 +14,6 @@ A simple SDK to communicate with [clamav-rest-service](https://github.com/dcssof
 		panic(err)
 	}
 
-  // true -> no virus, false -> infected
+  // false -> no virus, true -> infected
 	fmt.Println("result", isInfected)
 ```
